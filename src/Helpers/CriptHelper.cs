@@ -10,19 +10,19 @@ namespace Criptografia.RSA.Test.Helpers
     {
         public static string EncryptText(string text)
         {
-            var rsa = CreateRSA(KeysHelper.PrivateKeyFile);
+            var rsa = CreateRSA(KeysHelper.PublicKeyFile);
 
             var buffer = Encoding.UTF8.GetBytes(text);
-            var cript = rsa.Encrypt(buffer, RSAEncryptionPadding.OaepSHA256);
+            var cript = rsa.Encrypt(buffer, RSAEncryptionPadding.Pkcs1);
             return Convert.ToBase64String(cript);
         }
 
         public static string DecryptText(string text)
         {
-            var rsa = CreateRSA(KeysHelper.PublicKeyFile);
+            var rsa = CreateRSA(KeysHelper.PrivateKeyFile);
 
             var buffer = Convert.FromBase64String(text);
-            var cript = rsa.Decrypt(buffer, RSAEncryptionPadding.OaepSHA256);
+            var cript = rsa.Decrypt(buffer, RSAEncryptionPadding.Pkcs1);
             return Encoding.UTF8.GetString(cript);
         }
 

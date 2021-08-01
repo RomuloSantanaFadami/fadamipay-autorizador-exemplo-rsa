@@ -34,16 +34,14 @@ namespace Criptografia.RSA.Test.Helpers
                 File.Delete(file);
 
             // criando arquivo de chave privada
-            var pathPrivateKey = Path.Combine(path, PrivateKeyFile);
-            using (StreamWriter stream = new StreamWriter(pathPrivateKey))
+            using (StreamWriter stream = new StreamWriter(PrivateKeyFile))
                 stream.Write(privateKey);
 
             // criando arquivo de chave publica
-            var pathPublicKey = Path.Combine(path, PublicKeyFile);
-            using (StreamWriter stream = new StreamWriter(pathPublicKey))
-                stream.Write(privateKey);
+            using (StreamWriter stream = new StreamWriter(PublicKeyFile))
+                stream.Write(publicKey);
 
-            if (File.Exists(pathPrivateKey) && File.Exists(pathPublicKey))
+            if (File.Exists(PrivateKeyFile) && File.Exists(PublicKeyFile))
                 return PathKeys;
 
             return null;
