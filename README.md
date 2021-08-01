@@ -16,7 +16,7 @@ No console veremos o seguinte retorno:
 
 ## Comandos disponíveis:
 
-´´´
+```
   -v, --valor           (Default: Esse texto será usado como exemplo de criptografia) Valor a ser criptografado para teste
 
   -k, --gerar-chaves    (Default: false) Informativo se deve criar chave privada e publica
@@ -26,4 +26,4 @@ No console veremos o seguinte retorno:
   --help                Display this help screen.
 
   --version             Display version information.
-´´´
+```
